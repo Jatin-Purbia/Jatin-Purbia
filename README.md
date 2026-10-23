@@ -1,8 +1,5 @@
-<!-- Animated GitHub profile README.
-     Replace every Jatin-Purbia with your GitHub username (find & replace). -->
-
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=220&section=header&text=Hi%2C%20I'm%20Jatin&fontSize=54&fontAlignY=36&animation=fadeIn&desc=AI%20%2F%20ML%20%C2%B7%20NLP%20%C2%B7%20Computer%20Vision&descAlignY=58" alt="header" />
+  <img src="https://raw.githubusercontent.com/Jatin-Purbia/Jatin-Purbia/main/assets/header.svg" alt="Jatin Purbia - AI, ML, NLP, Computer Vision" width="100%" />
 </p>
 
 <p align="center">
@@ -11,19 +8,34 @@
   </a>
 </p>
 
----
-
-### About me
-
-- Student, with coursework spanning process control, process plant design, NLP and computer vision
-- Curious about AI/ML, both the theory and putting it to work
-- Currently reproducing and experimenting with research papers
-- Always learning something new
-
-### Tech stack
+<p align="center">
+  <img src="https://komarev.com/ghpvc/?username=Jatin-Purbia&style=for-the-badge&color=38bdf8&label=PROFILE+VIEWS" alt="profile views" />
+  <img src="https://img.shields.io/github/followers/Jatin-Purbia?style=for-the-badge&logo=github&color=a78bfa" alt="followers" />
+</p>
 
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=python,pytorch,tensorflow,sklearn,numpy,pandas,jupyter,git,github,linux,vscode,blender&perline=12" alt="tech stack" />
+  <img src="https://raw.githubusercontent.com/Jatin-Purbia/Jatin-Purbia/main/assets/divider.svg" alt="" width="100%" />
+</p>
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Jatin-Purbia/Jatin-Purbia/main/assets/terminal.svg" alt="Terminal: whoami, interests, stack" width="820" />
+</p>
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Jatin-Purbia/Jatin-Purbia/main/assets/divider.svg" alt="" width="100%" />
+</p>
+
+### Currently
+
+- Reproducing AI research papers and experimenting with agent systems
+- Coursework in NLP and computer vision
+- Process control and plant design on the engineering side
+- Learning in public, one commit at a time
+
+### Tech
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Jatin-Purbia/Jatin-Purbia/main/assets/marquee.svg" alt="Python, PyTorch, scikit-learn, NumPy, Pandas, Jupyter, Git, Linux, Blender" width="100%" />
 </p>
 
 ### GitHub stats
@@ -35,6 +47,10 @@
 
 <p align="center">
   <img src="https://streak-stats.demolab.com?user=Jatin-Purbia&theme=tokyonight&hide_border=true&background=0d1117" alt="streak" />
+</p>
+
+<p align="center">
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=Jatin-Purbia&bg_color=0d1117&color=58a6ff&line=58a6ff&point=ffffff&area=true&hide_border=true" alt="contribution activity graph" width="100%" />
 </p>
 
 ### Contribution snake
@@ -53,12 +69,6 @@
   <img src="https://github-profile-trophy.vercel.app/?username=Jatin-Purbia&theme=onedark&no-frame=true&no-bg=true&row=1&column=7" alt="trophies" />
 </p>
 
-### Connect
-
 <p align="center">
-  <a href="https://www.linkedin.com/in/YOUR_LINKEDIN"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
-</p>
-
-<p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=120&section=footer" alt="footer" />
+  <img src="https://raw.githubusercontent.com/Jatin-Purbia/Jatin-Purbia/main/assets/footer.svg" alt="" width="100%" />
 </p>
