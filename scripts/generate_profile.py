@@ -28,8 +28,9 @@ LEVELS = ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353"]
 
 
 # ------------------------------------------------------------------ data
-def fetch_days():
-    r = requests.get(f"https://github.com/users/{USER}/contributions", headers=HEADERS, timeout=30)
+def fetch_days(year=None):
+    params = {"from": f"{year}-01-01", "to": f"{year}-12-31"} if year else None
+    r = requests.get(f"https://github.com/users/{USER}/contributions", params=params, headers=HEADERS, timeout=30)
     r.raise_for_status()
     soup = BeautifulSoup(r.text, "html.parser")
     tips = {}
@@ -48,6 +49,8 @@ def fetch_days():
             count = int(m.group(1)) if m else 0
         days.append((date, count, level))
     days.sort()
+    if year:  # keep only the requested calendar year
+        days = [d for d in days if d[0].startswith(f"{year}-")]
     if not days:
         raise RuntimeError("no contribution days found")
     return days
@@ -195,7 +198,9 @@ def stats_svg(total, current, longest, repos, followers, stars):
 # ------------------------------------------------------------------ main
 def main():
     try:
-        days = fetch_days()
+        days = fetch_days()  # rolling last 365 days
+        year = dt.date.today().year
+        year_days = fetch_days(year)  # Jan 1 .. today of the current calendar year
         user = api(f"/users/{USER}")
         repos = api(f"/users/{USER}/repos?per_page=100&type=owner")
     except Exception as exc:  # leave existing files alone
@@ -211,7 +216,7 @@ def main():
     with open(os.path.join(OUT, "stats.svg"), "w", encoding="utf-8") as f:
         f.write(stats_svg(total, current, longest, user.get("public_repos", 0), user.get("followers", 0), stars))
     with open(os.path.join(OUT, "profile.svg"), "w", encoding="utf-8") as f:
-        f.write(profile_card.profile_svg(days, total, USER))
+        f.write(profile_card.profile_svg(year_days, sum(c for _, c, _ in year_days), USER, year=year, streak_days=days))
     print(f"ok: total={total} current={current} longest={longest} repos={user.get('public_repos')} followers={user.get('followers')} stars={stars}")
     return 0
 

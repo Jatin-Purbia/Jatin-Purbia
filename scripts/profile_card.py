@@ -50,11 +50,13 @@ def streak_info(days):
     return cur, best
 
 
-def monthly(days, n=12):
+def monthly(days, n=12, year=None):
     totals = {}
     for date, count, _ in days:
         d = dt.date.fromisoformat(date)
         totals[(d.year, d.month)] = totals.get((d.year, d.month), 0) + count
+    if year:  # Jan..Dec of that year; months without data stay at zero
+        return [(dt.date(year, m, 1).strftime("%b"), totals.get((year, m), 0)) for m in range(1, 13)]
     keys = sorted(totals)[-n:]
     return [(dt.date(y, m, 1).strftime("%b"), totals[(y, m)]) for y, m in keys]
 
@@ -99,14 +101,18 @@ def _countup(value, text_fn, x, y, size, fill, start=0.35, dur=1.6, steps=16):
     return "".join(out)
 
 
-def _heatmap(days, y_top):
+def _heatmap(days, y_top, year=None):
     cell, gap = 12, 3
     step = cell + gap
     x0 = 56
     first = dt.date.fromisoformat(days[0][0])
+    if year:
+        first = dt.date(year, 1, 1)
     start = first - dt.timedelta(days=(first.weekday() + 1) % 7)  # back to Sunday
 
     cells, cols = [], 0
+    if year:  # always reserve the full Jan..Dec width, even though the year isn't over yet
+        cols = (dt.date(year, 12, 31) - start).days // 7 + 1
     for date, count, level in days:
         d = dt.date.fromisoformat(date)
         col = (d - start).days // 7
@@ -118,12 +124,14 @@ def _heatmap(days, y_top):
     months, last_col, last_month = [], -10, None
     for col in range(cols):
         sunday = start + dt.timedelta(days=col * 7)
-        if sunday.month != last_month and col - last_col >= 3:
+        # in year view, name a week after the month most of it falls in (so a week starting Dec 28 reads "Jan")
+        ref = sunday + dt.timedelta(days=6) if year else sunday
+        if ref.month != last_month and (col - last_col >= 3 or last_col < 0) and (not year or ref.year == year):
             months.append(
-                f'<text x="{x0 + col * step}" y="{y_top - 8}" font-family="{MONO}" font-size="10" fill="{MUTED}">{sunday.strftime("%b")}</text>'
+                f'<text x="{x0 + col * step}" y="{y_top - 8}" font-family="{MONO}" font-size="10" fill="{MUTED}">{ref.strftime("%b")}</text>'
             )
             last_col = col
-        last_month = sunday.month
+        last_month = ref.month
     labels = "".join(
         f'<text x="20" y="{y_top + r * step + 9}" font-family="{MONO}" font-size="10" fill="{MUTED}">{n}</text>'
         for r, n in ((1, "Mon"), (3, "Wed"), (5, "Fri"))
@@ -225,22 +233,25 @@ def _portrait(x, y, w, h):
 
 
 # ------------------------------------------------------------------ card
-def profile_svg(days, total, user="Jatin-Purbia"):
+def profile_svg(days, total, user="Jatin-Purbia", year=None, streak_days=None):
     W = 880
-    (cur_n, cur_s, cur_e), (best_n, best_s, best_e) = streak_info(days)
+    period = str(year) if year else "the last year"
+    (_, _, _), (best_n, best_s, best_e) = streak_info(days)
+    # the *current* streak can run across New Year, so measure it on a rolling window when given
+    (cur_n, cur_s, cur_e), _ = streak_info(streak_days or days)
     active = sum(1 for _, c, _ in days if c > 0)
     top = max(days, key=lambda d: d[1]) if days else (None, 0, 0)
     avg = total / active if active else 0.0
-    series = monthly(days)
+    series = monthly(days, year=year)
 
     # section 1: contributions.sh
     p1 = 62
-    heat, heat_right, heat_bottom = _heatmap(days, y_top=p1 + 38)
+    heat, heat_right, heat_bottom = _heatmap(days, y_top=p1 + 38, year=year)
     foot_y = heat_bottom + 24
     sec1 = (
         _prompt(p1, "./contributions.sh")
         + heat
-        + f'<text x="20" y="{foot_y}" font-family="{MONO}" font-size="11" fill="{MUTED}">{total:,} contributions in the last year</text>'
+        + f'<text x="20" y="{foot_y}" font-family="{MONO}" font-size="11" fill="{MUTED}">{total:,} contributions in {period}</text>'
         + _legend(W - 20, foot_y)
     )
 
@@ -253,7 +264,7 @@ def profile_svg(days, total, user="Jatin-Purbia"):
     tiles = [
         ("CURRENT STREAK", cur_n, lambda v: f"{round(v)}", f"{_fmt_date(cur_s)} - {_fmt_date(cur_e)}" if cur_n else "no active streak", GREEN),
         ("LONGEST STREAK", best_n, lambda v: f"{round(v)}", f"{_fmt_date(best_s)} - {_fmt_date(best_e)}" if best_n else "-", GREEN),
-        ("CONTRIBUTIONS", total, lambda v: f"{round(v):,}", "in the last year", FG),
+        ("CONTRIBUTIONS", total, lambda v: f"{round(v):,}", f"in {period}", FG),
         ("ACTIVE DAYS", active, lambda v: f"{round(v)}", "days with contributions", FG),
         ("BEST DAY", top[1], lambda v: f"{round(v)}", _fmt_date(top[0]) if top[0] and top[1] else "-", FG),
         ("AVG / ACTIVE DAY", avg, lambda v: f"{v:.1f}", "contributions per active day", FG),
@@ -273,7 +284,7 @@ def profile_svg(days, total, user="Jatin-Purbia"):
     H = p3 + 22
     sec3 = _prompt(p3, "", cursor=True)
 
-    return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-label="Terminal-style profile: {total} contributions in the last year, streaks and an ASCII portrait of Jatin">
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-label="Terminal-style profile: {total} contributions in {period}, streaks and an ASCII portrait of Jatin">
   <title>{escape(user)} - README.md</title>
   <defs>
     <clipPath id="card"><rect width="{W}" height="{H}" rx="10"/></clipPath>
