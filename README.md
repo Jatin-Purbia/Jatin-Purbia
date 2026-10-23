@@ -1,10 +1,6 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Jatin-Purbia/Jatin-Purbia/main/assets/header.svg" alt="Jatin Purbia - AI, ML, NLP, Computer Vision" width="100%" />
-</p>
-
-<p align="center">
-  <a href="https://github.com/Jatin-Purbia">
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=36BCF7&center=true&vCenter=true&width=640&lines=Student+%26+AI%2FML+enthusiast;Exploring+NLP+and+Computer+Vision;Reproducing+research+papers;Building+things+that+learn" alt="Typing SVG" />
+  <a href="#">
+    <img src="https://raw.githubusercontent.com/Jatin-Purbia/Jatin-Purbia/main/assets/hero.svg" alt="Jatin Purbia - AI, ML, NLP, Computer Vision, with an animated portrait" width="100%" />
   </a>
 </p>
 
@@ -14,12 +10,6 @@
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/Jatin-Purbia/Jatin-Purbia/main/assets/divider.svg" alt="" width="100%" />
-</p>
-
-<p align="center">
-  <a href="#">
-    <img src="https://raw.githubusercontent.com/Jatin-Purbia/Jatin-Purbia/main/assets/portrait.svg" alt="Animated portrait of Jatin being scanned into view" width="400" />
-  </a>
 </p>
 
 <p align="center">
