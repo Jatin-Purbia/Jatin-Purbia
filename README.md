@@ -17,6 +17,10 @@
 </p>
 
 <p align="center">
+  <img src="https://raw.githubusercontent.com/Jatin-Purbia/Jatin-Purbia/main/assets/portrait.svg" alt="Animated portrait of Jatin being scanned into view" width="400" />
+</p>
+
+<p align="center">
   <img src="https://raw.githubusercontent.com/Jatin-Purbia/Jatin-Purbia/main/assets/terminal.svg" alt="Terminal: whoami, interests, stack" width="820" />
 </p>
 
