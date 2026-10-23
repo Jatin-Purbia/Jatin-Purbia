@@ -17,7 +17,9 @@
 </p>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Jatin-Purbia/Jatin-Purbia/main/assets/portrait.svg" alt="Animated portrait of Jatin being scanned into view" width="400" />
+  <a href="#">
+    <img src="https://raw.githubusercontent.com/Jatin-Purbia/Jatin-Purbia/main/assets/portrait.svg" alt="Animated portrait of Jatin being scanned into view" width="400" />
+  </a>
 </p>
 
 <p align="center">
