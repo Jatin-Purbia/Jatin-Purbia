@@ -22,38 +22,30 @@
 </p>
 
 <p align="center">
+  <img src="https://raw.githubusercontent.com/Jatin-Purbia/Jatin-Purbia/main/assets/info.svg" alt="neofetch-style summary: role, focus, coursework, interests" width="490" />
+</p>
+
+<p align="center">
   <img src="https://raw.githubusercontent.com/Jatin-Purbia/Jatin-Purbia/main/assets/divider.svg" alt="" width="100%" />
 </p>
 
-### Currently
-
-- Reproducing AI research papers and experimenting with agent systems
-- Coursework in NLP and computer vision
-- Process control and plant design on the engineering side
-- Learning in public, one commit at a time
-
-### Tech
+### $ cat tech.txt
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/Jatin-Purbia/Jatin-Purbia/main/assets/marquee.svg" alt="Python, PyTorch, scikit-learn, NumPy, Pandas, Jupyter, Git, Linux, Blender" width="100%" />
 </p>
 
-### GitHub stats
+### $ git log --stat
 
 <p align="center">
-  <img height="170" src="https://github-readme-stats.vercel.app/api?username=Jatin-Purbia&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0d1117" alt="stats" />
-  <img height="170" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Jatin-Purbia&layout=compact&theme=tokyonight&hide_border=true&bg_color=0d1117" alt="top languages" />
+  <img src="https://raw.githubusercontent.com/Jatin-Purbia/Jatin-Purbia/main/assets/stats.svg" alt="GitHub stats: contributions, streaks, repos" width="100%" />
 </p>
 
 <p align="center">
-  <img src="https://streak-stats.demolab.com?user=Jatin-Purbia&theme=tokyonight&hide_border=true&background=0d1117" alt="streak" />
+  <img src="https://raw.githubusercontent.com/Jatin-Purbia/Jatin-Purbia/main/assets/heatmap.svg" alt="Contribution heatmap for the last year" width="100%" />
 </p>
 
-<p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=Jatin-Purbia&bg_color=0d1117&color=58a6ff&line=58a6ff&point=ffffff&area=true&hide_border=true" alt="contribution activity graph" width="100%" />
-</p>
-
-### Contribution snake
+### $ ./snake
 
 <p align="center">
   <picture>
@@ -63,7 +55,7 @@
   </picture>
 </p>
 
-### Trophies
+### $ ls trophies/
 
 <p align="center">
   <img src="https://github-profile-trophy.vercel.app/?username=Jatin-Purbia&theme=onedark&no-frame=true&no-bg=true&row=1&column=7" alt="trophies" />
