@@ -14,6 +14,8 @@ from xml.sax.saxutils import escape
 import requests
 from bs4 import BeautifulSoup
 
+import profile_card
+
 USER = os.environ.get("PROFILE_USER") or os.environ.get("GITHUB_REPOSITORY_OWNER") or "Jatin-Purbia"
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, "assets")
@@ -208,6 +210,8 @@ def main():
         f.write(heatmap_svg(days, total))
     with open(os.path.join(OUT, "stats.svg"), "w", encoding="utf-8") as f:
         f.write(stats_svg(total, current, longest, user.get("public_repos", 0), user.get("followers", 0), stars))
+    with open(os.path.join(OUT, "profile.svg"), "w", encoding="utf-8") as f:
+        f.write(profile_card.profile_svg(days, total, USER))
     print(f"ok: total={total} current={current} longest={longest} repos={user.get('public_repos')} followers={user.get('followers')} stars={stars}")
     return 0
 

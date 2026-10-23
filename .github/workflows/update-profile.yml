@@ -9,6 +9,8 @@ on:
       - main
     paths:
       - "scripts/generate_profile.py"
+      - "scripts/profile_card.py"
+      - "assets/portrait-src.png"
       - ".github/workflows/update-profile.yml"
 
 permissions:
@@ -37,4 +39,4 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore: refresh profile graphics [skip ci]"
-          file_pattern: assets/heatmap.svg assets/stats.svg
+          file_pattern: assets/heatmap.svg assets/stats.svg assets/profile.svg
