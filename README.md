@@ -45,16 +45,6 @@
   <img src="https://raw.githubusercontent.com/Jatin-Purbia/Jatin-Purbia/main/assets/heatmap.svg" alt="Contribution heatmap for the last year" width="100%" />
 </p>
 
-### $ ./snake
-
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Jatin-Purbia/Jatin-Purbia/output/github-snake-dark.svg" />
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Jatin-Purbia/Jatin-Purbia/output/github-snake.svg" />
-    <img alt="contribution snake" src="https://raw.githubusercontent.com/Jatin-Purbia/Jatin-Purbia/output/github-snake.svg" />
-  </picture>
-</p>
-
 ### $ ls trophies/
 
 <p align="center">
