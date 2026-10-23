@@ -9,7 +9,6 @@
 </p>
 
 <p align="center">
-  <img src="https://komarev.com/ghpvc/?username=Jatin-Purbia&style=for-the-badge&color=38bdf8&label=PROFILE+VIEWS" alt="profile views" />
   <img src="https://img.shields.io/github/followers/Jatin-Purbia?style=for-the-badge&logo=github&color=a78bfa" alt="followers" />
 </p>
 
@@ -43,12 +42,6 @@
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/Jatin-Purbia/Jatin-Purbia/main/assets/heatmap.svg" alt="Contribution heatmap for the last year" width="100%" />
-</p>
-
-### $ ls trophies/
-
-<p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=Jatin-Purbia&theme=onedark&no-frame=true&no-bg=true&row=1&column=7" alt="trophies" />
 </p>
 
 <p align="center">
